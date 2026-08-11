@@ -7,6 +7,7 @@ tags:
   - AI
   - Software Engineering
   - Team
+socialImage: "/og-article.png"
 ---
 
 # Dal mio Lab #1 — Il mio team non è proprio un team normale 😄

@@ -6,6 +6,11 @@ import {
   getArticleBySlug,
   getArticleSlugs,
 } from "@/lib/articles";
+import {
+  siteLocale,
+  siteName,
+  siteSocialImagePath,
+} from "@/lib/site";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -21,9 +26,45 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const { slug } = await params;
   const article = getArticleBySlug(slug);
 
-  return article
-    ? { title: article.title, description: article.excerpt }
-    : { title: "Articolo non trovato" };
+  if (!article) {
+    return { title: "Articolo non trovato" };
+  }
+
+  const canonicalPath = `/articles/${article.slug}`;
+  const socialImagePath = article.socialImage ?? siteSocialImagePath;
+  const socialTitle = `Dal mio Lab #${article.number} — ${article.title}`;
+
+  return {
+    title: socialTitle,
+    description: article.excerpt,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: socialTitle,
+      description: article.excerpt,
+      url: canonicalPath,
+      siteName,
+      locale: siteLocale,
+      type: "article",
+      publishedTime: `${article.date}T00:00:00.000Z`,
+      tags: article.tags,
+      images: [
+        {
+          url: socialImagePath,
+          width: 1200,
+          height: 630,
+          alt: socialTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description: article.excerpt,
+      images: [socialImagePath],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {

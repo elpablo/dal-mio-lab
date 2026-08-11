@@ -12,6 +12,7 @@ export type Article = {
   date: string;
   excerpt: string;
   tags: string[];
+  socialImage?: string;
   readingTime: number;
   contentHtml: string;
 };
