@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ArticleSharing from "../ArticleSharing";
 import {
   formatArticleDate,
   getArticleBySlug,
@@ -10,6 +11,7 @@ import {
   siteLocale,
   siteName,
   siteSocialImagePath,
+  siteUrl,
 } from "@/lib/site";
 
 type ArticlePageProps = {
@@ -98,6 +100,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </header>
 
         <article className="prose" dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
+
+        <ArticleSharing articleUrl={`${siteUrl}/articles/${article.slug}`} />
 
         <nav className="article-navigation" aria-label="Navigazione articolo">
           <Link className="back-home" href="/">

@@ -350,9 +350,50 @@ a:focus-visible {
   text-underline-offset: 0.2em;
 }
 
+.article-sharing {
+  display: flex;
+  max-width: var(--reading-width);
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 3.25rem auto 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.share-action {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+}
+
+.share-action:hover {
+  color: var(--accent-dark);
+}
+
+.share-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.share-action--button {
+  text-align: left;
+}
+
+.article-sharing__separator {
+  color: var(--line);
+}
+
 .article-navigation {
   max-width: var(--reading-width);
-  margin: 4.5rem auto 0;
+  margin: 3.5rem auto 0;
   padding-top: 1.25rem;
   border-top: 1px solid var(--ink);
 }
