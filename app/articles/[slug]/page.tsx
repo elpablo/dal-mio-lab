@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import ArticleSharing from "../ArticleSharing";
 import {
   formatArticleDate,
+  getAdjacentArticles,
   getArticleBySlug,
   getArticleSlugs,
 } from "@/lib/articles";
@@ -77,6 +78,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
+  const { previousArticle, nextArticle } = getAdjacentArticles(article.slug);
+
   return (
     <div className="site-shell site-shell--article">
       <header className="site-header">
@@ -103,7 +106,31 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         <ArticleSharing articleUrl={`${siteUrl}/articles/${article.slug}`} />
 
-        <nav className="article-navigation" aria-label="Navigazione articolo">
+        <nav className="article-navigation" aria-label="Navigazione tra gli articoli">
+          <div className="article-navigation__links">
+            {previousArticle && (
+              <Link
+                className="article-navigation__link"
+                href={`/articles/${previousArticle.slug}`}
+              >
+                <span className="article-navigation__label">← Articolo precedente</span>
+                <span className="article-navigation__title">
+                  #{String(previousArticle.number).padStart(2, "0")} — {previousArticle.title}
+                </span>
+              </Link>
+            )}
+            {nextArticle && (
+              <Link
+                className="article-navigation__link article-navigation__link--next"
+                href={`/articles/${nextArticle.slug}`}
+              >
+                <span className="article-navigation__label">Articolo successivo →</span>
+                <span className="article-navigation__title">
+                  #{String(nextArticle.number).padStart(2, "0")} — {nextArticle.title}
+                </span>
+              </Link>
+            )}
+          </div>
           <Link className="back-home" href="/">
             <span aria-hidden="true">←</span> Torna agli appunti
           </Link>

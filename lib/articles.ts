@@ -56,6 +56,23 @@ export function getArticleBySlug(slug: string): Article | undefined {
   return getAllArticles().find((article) => article.slug === slug);
 }
 
+export function getAdjacentArticles(slug: string): {
+  previousArticle?: Article;
+  nextArticle?: Article;
+} {
+  const articles = getAllArticles();
+  const currentIndex = articles.findIndex((article) => article.slug === slug);
+
+  if (currentIndex === -1) {
+    return {};
+  }
+
+  return {
+    previousArticle: articles[currentIndex + 1],
+    nextArticle: articles[currentIndex - 1],
+  };
+}
+
 export function getArticleSlugs(): string[] {
   return getAllArticles().map((article) => article.slug);
 }
