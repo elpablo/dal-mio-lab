@@ -350,6 +350,73 @@ a:focus-visible {
   text-underline-offset: 0.2em;
 }
 
+.prose table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 2.25rem 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  line-height: 1.45;
+  scrollbar-color: var(--accent) var(--paper-deep);
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose th,
+.prose td {
+  padding: 0.85rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  background: color-mix(in srgb, var(--paper-deep) 72%, transparent);
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.prose tbody tr + tr {
+  border-top: 1px solid var(--line);
+}
+
+.prose th:first-child,
+.prose td:first-child {
+  min-width: 13rem;
+}
+
+.prose th:nth-child(2),
+.prose td:nth-child(2) {
+  min-width: 5.5rem;
+  text-align: right;
+}
+
+.prose th:nth-child(3),
+.prose td:nth-child(3) {
+  min-width: 5rem;
+}
+
+.prose th:nth-child(2),
+.prose td:nth-child(2),
+.prose th:nth-child(3),
+.prose td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.prose th:last-child,
+.prose td:last-child {
+  min-width: 12rem;
+}
+
 .article-sharing {
   display: flex;
   max-width: var(--reading-width);
