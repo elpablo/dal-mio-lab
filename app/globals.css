@@ -320,6 +320,10 @@ a:focus-visible {
   line-height: 0.98;
 }
 
+.mobile-title-break {
+  display: none;
+}
+
 .prose p {
   margin: 0 0 1.5rem;
 }
@@ -415,6 +419,30 @@ a:focus-visible {
 .prose th:last-child,
 .prose td:last-child {
   min-width: 12rem;
+}
+
+.discussion-cta {
+  margin-top: 3.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper-deep) 55%, transparent);
+}
+
+.discussion-cta h3 {
+  margin: 0 0 0.85rem;
+  color: var(--accent-dark);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.discussion-cta p {
+  margin-bottom: 0.75rem;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.discussion-cta p:last-child {
+  margin-bottom: 0;
 }
 
 .article-sharing {
@@ -573,6 +601,10 @@ a:focus-visible {
     margin-bottom: 2rem;
     font-size: clamp(2.25rem, 11vw, 3.6rem);
     line-height: 1.03;
+  }
+
+  .mobile-title-break {
+    display: block;
   }
 
   .article-navigation__link--next {
