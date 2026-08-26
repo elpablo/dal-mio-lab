@@ -466,4 +466,7 @@ E se davvero stiamo andando in quella direzione, credo valga la pena iniziare a 
   <h3 id="discussion-heading">Come la state affrontando voi?</h3>
   <p>Questo articolo nasce anche per aprire una discussione.</p>
   <p>Se state costruendo agenti AI, sistemi multi-agent o servizi che dovranno essere utilizzati da AI, mi interessa sapere come state gestendo identità, autenticazione e delega.</p>
+  <a href="https://lnkd.in/p/dxi4b2Wn" target="_blank" rel="noopener noreferrer">
+  Partecipa alla conversazione su LinkedIn →
+  </a>
 </aside>
