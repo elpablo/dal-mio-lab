@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       siteName,
       locale: siteLocale,
       type: "article",
-      publishedTime: `${article.date}T00:00:00.000Z`,
+      publishedTime: article.date ? `${article.date}T00:00:00.000Z` : undefined,
       tags: article.tags,
       images: [
         {
@@ -94,7 +94,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <header className="article-header">
           <div className="article-header__meta">
             <span className="article-number">#{String(article.number).padStart(2, "0")}</span>
-            <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
+            {article.date && (
+              <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
+            )}
             <span>{article.readingTime} min di lettura</span>
           </div>
           <ul className="tag-list" aria-label="Tag dell'articolo">
@@ -102,7 +104,31 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </ul>
         </header>
 
-        <article className="prose" dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
+        <article className="prose">
+          <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
+          {article.discussion && (
+            <aside
+              className="discussion-cta"
+              aria-labelledby={`discussion-heading-${article.slug}`}
+            >
+              <h3 id={`discussion-heading-${article.slug}`}>
+                {article.discussion.title}
+              </h3>
+              {article.discussion.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {article.discussion.linkedinPost && (
+                <a
+                  href={article.discussion.linkedinPost}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Partecipa alla conversazione su LinkedIn →
+                </a>
+              )}
+            </aside>
+          )}
+        </article>
 
         <ArticleSharing articleUrl={`${siteUrl}/articles/${article.slug}`} />
 

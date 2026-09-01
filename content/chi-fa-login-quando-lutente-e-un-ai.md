@@ -8,6 +8,12 @@ tags:
   - Authentication
   - Software Engineering
 socialImage: "/og-article-3.png"
+discussion:
+  title: "Come la state affrontando voi?"
+  paragraphs:
+    - "Questo articolo nasce anche per aprire una discussione."
+    - "Se state costruendo agenti AI, sistemi multi-agent o servizi che dovranno essere utilizzati da AI, mi interessa sapere come state gestendo identità, autenticazione e delega."
+  linkedinPost: "https://lnkd.in/p/dxi4b2Wn"
 ---
 
 # Dal mio Lab #3 <br class="mobile-title-break">— Chi fa login quando l’utente è un’AI?
@@ -461,12 +467,3 @@ e
 **“questo è un agente autorizzato da Paolo a fare questa cosa, su questa risorsa, fino a questo momento.”**
 
 E se davvero stiamo andando in quella direzione, credo valga la pena iniziare a parlarne adesso.
-
-<aside class="discussion-cta" aria-labelledby="discussion-heading">
-  <h3 id="discussion-heading">Come la state affrontando voi?</h3>
-  <p>Questo articolo nasce anche per aprire una discussione.</p>
-  <p>Se state costruendo agenti AI, sistemi multi-agent o servizi che dovranno essere utilizzati da AI, mi interessa sapere come state gestendo identità, autenticazione e delega.</p>
-  <a href="https://lnkd.in/p/dxi4b2Wn" target="_blank" rel="noopener noreferrer">
-  Partecipa alla conversazione su LinkedIn →
-  </a>
-</aside>

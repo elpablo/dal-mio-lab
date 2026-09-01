@@ -9,10 +9,15 @@ export type Article = {
   slug: string;
   title: string;
   number: number;
-  date: string;
+  date?: string;
   excerpt: string;
   tags: string[];
   socialImage?: string;
+  discussion?: {
+    title: string;
+    paragraphs: string[];
+    linkedinPost?: string;
+  };
   readingTime: number;
   contentHtml: string;
 };

@@ -10,7 +10,9 @@ function ArticleCard({ article }: { article: Article }) {
     <article className="article-card">
       <div className="article-card__topline">
         <span className="article-number">#{String(article.number).padStart(2, "0")}</span>
-        <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
+        {article.date && (
+          <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
+        )}
       </div>
       <h2>
         <Link href={`/articles/${article.slug}`}>{article.title}</Link>
