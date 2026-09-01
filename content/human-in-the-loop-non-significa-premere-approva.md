@@ -15,6 +15,7 @@ discussion:
     - "Quali richiedono un checkpoint?"
     - "E quali non deleghereste ancora a un agente?"
     - "Mi interessa soprattutto capire come cambia questa scelta quando aumentano autonomia, rischio e conseguenze delle decisioni."
+  linkedinPost: "https://lnkd.in/p/ds-qpCve"
 ---
 
 # Dal mio Lab #4 <br class="mobile-title-break">— Human-in-the-loop non significa premere “Approva”
