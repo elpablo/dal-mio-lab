@@ -232,6 +232,27 @@ a:focus-visible {
   letter-spacing: 0.03em;
 }
 
+.language-switch {
+  display: inline-flex;
+  margin-top: 1.1rem;
+  color: var(--accent);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.language-switch:hover {
+  color: var(--accent-dark);
+}
+
+.language-switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .reading-time {
   color: var(--muted);
   font-size: 0.75rem;

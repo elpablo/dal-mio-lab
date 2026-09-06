@@ -1,6 +1,10 @@
 ---
 title: "Chi fa login quando l’utente è un’AI?"
 number: 3
+lang: it
+alternateLanguage:
+  lang: en
+  slug: who-logs-in-when-the-user-is-an-ai
 date: "2026-08-25"
 excerpt: "Gli agenti AI stanno iniziando ad agire davvero per conto nostro. Ma quando accedono a un servizio, chi si sta autenticando: noi, l’agente o entrambi?"
 tags:

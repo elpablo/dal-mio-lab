@@ -6,9 +6,10 @@ type CopyState = "idle" | "success" | "error";
 
 type ArticleSharingProps = {
   articleUrl: string;
+  language: "it" | "en";
 };
 
-export default function ArticleSharing({ articleUrl }: ArticleSharingProps) {
+export default function ArticleSharing({ articleUrl, language }: ArticleSharingProps) {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -47,21 +48,27 @@ export default function ArticleSharing({ articleUrl }: ArticleSharingProps) {
 
   const copyLabel =
     copyState === "success"
-      ? "Link copiato ✓"
+      ? language === "it" ? "Link copiato ✓" : "Link copied ✓"
       : copyState === "error"
-        ? "Copia non riuscita"
-        : "Copia link";
+        ? language === "it" ? "Copia non riuscita" : "Copy failed"
+        : language === "it" ? "Copia link" : "Copy link";
 
   return (
-    <div className="article-sharing" role="group" aria-label="Azioni articolo">
+    <div
+      className="article-sharing"
+      role="group"
+      aria-label={language === "it" ? "Azioni articolo" : "Article actions"}
+    >
       <a
         className="share-action"
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Condividi su LinkedIn (si apre in una nuova scheda)"
+        aria-label={language === "it"
+          ? "Condividi su LinkedIn (si apre in una nuova scheda)"
+          : "Share on LinkedIn (opens in a new tab)"}
       >
-        Condividi su LinkedIn <span aria-hidden="true">↗</span>
+        {language === "it" ? "Condividi su LinkedIn" : "Share on LinkedIn"} <span aria-hidden="true">↗</span>
       </a>
       <span className="article-sharing__separator" aria-hidden="true">·</span>
       <button

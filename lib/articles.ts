@@ -9,10 +9,15 @@ export type Article = {
   slug: string;
   title: string;
   number: number;
+  lang: ArticleLanguage;
   date?: string;
   excerpt: string;
   tags: string[];
   socialImage?: string;
+  alternateLanguage?: {
+    lang: ArticleLanguage;
+    slug: string;
+  };
   discussion?: {
     title: string;
     paragraphs: string[];
@@ -22,7 +27,14 @@ export type Article = {
   contentHtml: string;
 };
 
-type ArticleFrontmatter = Omit<Article, "slug" | "readingTime" | "contentHtml">;
+export type ArticleLanguage = "it" | "en";
+
+type ArticleFrontmatter = Omit<
+  Article,
+  "slug" | "readingTime" | "contentHtml" | "lang"
+> & {
+  lang?: ArticleLanguage;
+};
 
 function estimateReadingTime(content: string): number {
   const wordCount = content
@@ -43,29 +55,37 @@ function articleFromFile(filename: string): Article {
 
   return {
     ...data,
+    lang: data.lang ?? "it",
     slug,
     readingTime: estimateReadingTime(content),
     contentHtml: marked.parse(content, { async: false }) as string,
   };
 }
 
-export function getAllArticles(): Article[] {
+export function getAllArticles(language: ArticleLanguage = "it"): Article[] {
   return fs
     .readdirSync(contentDirectory)
     .filter((filename) => filename.endsWith(".md"))
     .map(articleFromFile)
+    .filter((article) => article.lang === language)
     .sort((first, second) => second.number - first.number);
 }
 
-export function getArticleBySlug(slug: string): Article | undefined {
-  return getAllArticles().find((article) => article.slug === slug);
+export function getArticleBySlug(
+  slug: string,
+  language: ArticleLanguage = "it",
+): Article | undefined {
+  return getAllArticles(language).find((article) => article.slug === slug);
 }
 
-export function getAdjacentArticles(slug: string): {
+export function getAdjacentArticles(
+  slug: string,
+  language: ArticleLanguage = "it",
+): {
   previousArticle?: Article;
   nextArticle?: Article;
 } {
-  const articles = getAllArticles();
+  const articles = getAllArticles(language);
   const currentIndex = articles.findIndex((article) => article.slug === slug);
 
   if (currentIndex === -1) {
@@ -78,12 +98,12 @@ export function getAdjacentArticles(slug: string): {
   };
 }
 
-export function getArticleSlugs(): string[] {
-  return getAllArticles().map((article) => article.slug);
+export function getArticleSlugs(language: ArticleLanguage = "it"): string[] {
+  return getAllArticles(language).map((article) => article.slug);
 }
 
-export function formatArticleDate(date: string): string {
-  return new Intl.DateTimeFormat("it-IT", {
+export function formatArticleDate(date: string, language: ArticleLanguage = "it"): string {
+  return new Intl.DateTimeFormat(language === "en" ? "en-US" : "it-IT", {
     day: "numeric",
     month: "long",
     year: "numeric",
