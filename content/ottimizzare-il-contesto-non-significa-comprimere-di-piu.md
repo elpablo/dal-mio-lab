@@ -17,6 +17,7 @@ discussion:
     - "Latenza?"
     - "Qualità del risultato?"
     - "E soprattutto: vi è mai capitato che migliorare una singola metrica peggiorasse il sistema nel suo complesso?"
+  linkedinPost: https://lnkd.in/p/dzTq-ETG
 ---
 
 # Dal mio Lab #5 <br class="mobile-title-break">— Ottimizzare il contesto non significa comprimere di più

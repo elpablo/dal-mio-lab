@@ -21,6 +21,8 @@ export type Article = {
   discussion?: {
     title: string;
     paragraphs: string[];
+    linkedinUrl?: string;
+    /** @deprecated Keep reading the original frontmatter field. */
     linkedinPost?: string;
   };
   readingTime: number;

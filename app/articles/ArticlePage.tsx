@@ -86,6 +86,8 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
   const alternateHref = article.alternateLanguage
     ? getArticlePath(article.alternateLanguage.lang, article.alternateLanguage.slug)
     : undefined;
+  const discussionUrl =
+    article.discussion?.linkedinUrl?.trim() || article.discussion?.linkedinPost?.trim();
 
   return (
     <div className="site-shell site-shell--article" lang={language}>
@@ -122,7 +124,7 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
 
         <article className="prose">
           <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
-          {article.discussion && (
+          {article.discussion && discussionUrl && (
             <aside
               className="discussion-cta"
               aria-labelledby={`discussion-heading-${article.slug}`}
@@ -133,15 +135,13 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
               {article.discussion.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              {article.discussion.linkedinPost && (
-                <a
-                  href={article.discussion.linkedinPost}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Partecipa alla conversazione su LinkedIn →
-                </a>
-              )}
+              <a
+                href={discussionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Partecipa alla conversazione su LinkedIn →
+              </a>
             </aside>
           )}
         </article>
