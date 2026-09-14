@@ -124,7 +124,7 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
 
         <article className="prose">
           <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
-          {article.discussion && discussionUrl && (
+          {article.discussion && (
             <aside
               className="discussion-cta"
               aria-labelledby={`discussion-heading-${article.slug}`}
@@ -135,13 +135,17 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
               {article.discussion.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <a
-                href={discussionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Partecipa alla conversazione su LinkedIn →
-              </a>
+              {discussionUrl && (
+                <a
+                  href={discussionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {language === "it"
+                    ? "Partecipa alla conversazione su LinkedIn →"
+                    : "Join the conversation on LinkedIn →"}
+                </a>
+              )}
             </aside>
           )}
         </article>
