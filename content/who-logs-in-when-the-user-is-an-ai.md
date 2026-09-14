@@ -12,6 +12,11 @@ tags:
   - Authentication
   - Software Engineering
 socialImage: "/og-article-3-en.png"
+discussion:
+  title: "How are you approaching it?"
+  paragraphs:
+    - "This article is also an invitation to open a discussion."
+    - "If you are building AI agents, multi-agent systems or services that will need to be used by AI, I am interested in how you are handling identity, authentication and delegation."
 ---
 
 # Dal mio Lab #3 <br class="mobile-title-break">— Who logs in when the user is an AI?
