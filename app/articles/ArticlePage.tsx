@@ -86,8 +86,7 @@ export default function ArticlePage({ article, language }: ArticlePageProps) {
   const alternateHref = article.alternateLanguage
     ? getArticlePath(article.alternateLanguage.lang, article.alternateLanguage.slug)
     : undefined;
-  const discussionUrl =
-    article.discussion?.linkedinUrl?.trim() || article.discussion?.linkedinPost?.trim();
+  const discussionUrl = article.discussion?.linkedinPost;
 
   return (
     <div className="site-shell site-shell--article" lang={language}>

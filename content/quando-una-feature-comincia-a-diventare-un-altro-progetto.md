@@ -14,6 +14,7 @@ discussion:
     - "Vi è mai capitato di aggiungere “solo una feature” e accorgervi qualche settimana dopo che stavate costruendo praticamente un altro prodotto dentro il primo?"
     - "E soprattutto:"
     - "Quale segnale vi ha fatto capire che era arrivato il momento di separare le responsabilità?"
+  linkedinPost: "https://lnkd.in/p/dVSdUnVU"
 ---
 
 # Dal mio Lab #6 <br class="mobile-title-break">— Quando una feature comincia a diventare un altro progetto

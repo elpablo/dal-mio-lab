@@ -21,8 +21,7 @@ export type Article = {
   discussion?: {
     title: string;
     paragraphs: string[];
-    linkedinUrl?: string;
-    /** @deprecated Keep reading the original frontmatter field. */
+    /** Canonical frontmatter key for the LinkedIn discussion URL. */
     linkedinPost?: string;
   };
   readingTime: number;
@@ -36,7 +35,27 @@ type ArticleFrontmatter = Omit<
   "slug" | "readingTime" | "contentHtml" | "lang"
 > & {
   lang?: ArticleLanguage;
+  /** Legacy input accepted for compatibility; normalize it to linkedinPost. */
+  discussion?: Article["discussion"] & {
+    linkedinUrl?: string;
+  };
 };
+
+function normalizeDiscussion(
+  discussion: ArticleFrontmatter["discussion"],
+): Article["discussion"] {
+  if (!discussion) {
+    return undefined;
+  }
+
+  const linkedinPost = discussion.linkedinPost?.trim() || discussion.linkedinUrl?.trim();
+
+  return {
+    title: discussion.title,
+    paragraphs: discussion.paragraphs,
+    ...(linkedinPost ? { linkedinPost } : {}),
+  };
+}
 
 function estimateReadingTime(content: string): number {
   const wordCount = content
@@ -54,9 +73,11 @@ function articleFromFile(filename: string): Article {
   const parsed = matter(source);
   const data = parsed.data as ArticleFrontmatter;
   const { content } = parsed;
+  const { discussion, ...articleData } = data;
 
   return {
-    ...data,
+    ...articleData,
+    ...(discussion ? { discussion: normalizeDiscussion(discussion) } : {}),
     lang: data.lang ?? "it",
     slug,
     readingTime: estimateReadingTime(content),
