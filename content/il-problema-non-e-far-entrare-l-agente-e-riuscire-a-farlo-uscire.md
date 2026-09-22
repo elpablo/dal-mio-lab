@@ -7,7 +7,7 @@ excerpt: "Autenticare un agente è solo l’inizio: il problema più difficile �
 tags:
   - AI
   - Identity
-  - Security
+  - Cybersecurity
   - Software Engineering
 ---
 
