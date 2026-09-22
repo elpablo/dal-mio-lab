@@ -9,6 +9,12 @@ tags:
   - Identity
   - Cybersecurity
   - Software Engineering
+discussion:
+  title: "Come la state affrontando voi?"
+  paragraphs:
+    - "Se state costruendo agenti che devono accedere a più servizi, come state gestendo identità, credenziali, revoca e sospensione?"
+    - "E soprattutto: quando dovete togliere un accesso, riuscite davvero a togliere solo quello?"
+  linkedinPost: "https://lnkd.in/p/dAyhgBCz"
 ---
 
 # Dal mio Lab #7 <br class="mobile-title-break">— Il problema non è far entrare l’agente. È riuscire a farlo uscire
@@ -378,13 +384,3 @@ A volte inizi cercando il modo migliore per aprire una porta.
 E finisci per scoprire che la domanda veramente importante era:
 
 > **come faccio a chiuderne esattamente una, lasciando aperte tutte le altre?**
-
----
-
-## Come la state affrontando voi?
-
-Se state costruendo agenti che devono accedere a più servizi, come state gestendo **identità, credenziali, revoca e sospensione**?
-
-E soprattutto:
-
-**quando dovete togliere un accesso, riuscite davvero a togliere solo quello?**
