@@ -15,6 +15,7 @@ discussion:
   paragraphs:
     - "Quando usate agenti AI su codebase reali, dove conservate il contesto che non vive nel codice?"
     - "E soprattutto: come fate a evitare che una decisione già presa venga “riscoperta” da zero sei mesi dopo?"
+  linkedinPost: https://lnkd.in/p/dhkff-VT
 ---
 
 # Dal mio Lab #8 <br class="mobile-title-break">— Un agente sa scrivere codice. Ma sa perché lo sta scrivendo?
