@@ -15,6 +15,7 @@ discussion:
   paragraphs:
     - "Quando lasciate lavorare autonomamente un agente, qual è il criterio che usate per decidere quanto controllo mantenere?"
     - "E soprattutto: prima di delegare un task, sapete già come vi accorgerete se il risultato è sbagliato?"
+  linkedinPost: https://lnkd.in/p/dq6Wc6P4
 ---
 
 # Dal mio Lab #9 <br class="mobile-title-break">— Quando posso lasciare un agente lavorare da solo?
