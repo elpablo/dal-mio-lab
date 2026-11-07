@@ -2,7 +2,7 @@
 title: "E se il secondo agente non dovesse controllare il codice?"
 number: 10
 lang: it
-date: "2026-10-15"
+date: "2026-11-07"
 excerpt: "Abbiamo provato a far rileggere decisioni e modifiche da un secondo agente. La parte interessante non è stata avere una seconda opinione, ma assegnargli una responsabilità diversa."
 tags:
   - AI
