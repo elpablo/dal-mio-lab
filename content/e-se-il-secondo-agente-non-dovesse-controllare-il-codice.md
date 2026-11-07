@@ -15,6 +15,7 @@ discussion:
   paragraphs:
     - "Quando usate più agenti sullo stesso progetto, assegnate loro responsabilità realmente diverse o li usate soprattutto come seconde opinioni?"
     - "E soprattutto: chi controlla il ragionamento che ha portato al codice, prima che quel ragionamento diventi semplicemente “il modo in cui il sistema funziona”?"
+  linkedinPost: https://lnkd.in/p/dyQwBcj9
 ---
 
 # Dal mio Lab #10 <br class="mobile-title-break">— E se il secondo agente non dovesse controllare il codice?
