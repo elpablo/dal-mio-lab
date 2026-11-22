@@ -15,6 +15,7 @@ discussion:
     - "Come definite il momento in cui un'attività sviluppata con l'aiuto degli agenti AI può essere considerata realmente completata?"
     - "Vi basate principalmente su test e acceptance criteria oppure prevedete anche una verifica degli obiettivi e dei confini architetturali?"
     - "Mi interessa soprattutto capire se vi sia mai capitato di fermare uno sviluppo non perché qualcosa non funzionasse, ma perché vi siete accorti che stavate costruendo più del necessario."
+  linkedinPost: https://lnkd.in/p/dBFJtjBg
 ---
 
 # Chi decide quando un agente ha davvero finito?
